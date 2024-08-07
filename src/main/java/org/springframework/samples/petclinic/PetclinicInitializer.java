@@ -50,7 +50,7 @@ public class PetclinicInitializer extends AbstractDispatcherServletInitializer {
      * default jpa Spring profile.
      */
     private static final String SPRING_PROFILE = "jpa";
-
+// Ritesh
     @Override
     protected WebApplicationContext createRootApplicationContext() {
         XmlWebApplicationContext rootAppContext = new XmlWebApplicationContext();

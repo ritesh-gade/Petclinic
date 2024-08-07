@@ -81,7 +81,7 @@
         <docker.image.prefix>springcommunity</docker.image.prefix>
 
     </properties>
-
+<!-- Ritesh -->
     <dependencyManagement>
         <dependencies>
             <dependency>
