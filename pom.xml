@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/POM/4.0.0/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.springframework.samples</groupId>
@@ -10,11 +10,11 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- Use a valid and available version for the BOM -->
+            <!-- BOM for Spring Data -->
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-bom</artifactId>
-                <version>2023.1.1</version>
+                <version>2023.1.0</version> <!-- Update to a valid version -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -22,22 +22,19 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- Example of specifying a version for spring-data-jpa -->
+        <!-- Updated spring-data-jpa dependency -->
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
-            <version>2023.1.1</version> <!-- Use a valid version -->
+            <version>2023.1.0</version> <!-- Ensure this version is correct -->
         </dependency>
-
-        <!-- Example of servlet-api with version -->
+        <!-- Other dependencies -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version> <!-- Ensure this version matches your project requirements -->
+            <version>4.0.1</version>
             <scope>provided</scope>
         </dependency>
-
-        <!-- Add other dependencies as needed -->
     </dependencies>
 
     <build>
@@ -45,23 +42,32 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.7</version> <!-- Use the appropriate version -->
+                <version>0.8.7</version> <!-- Use a stable version -->
                 <executions>
                     <execution>
-                        <id>prepare-agent</id> <!-- Unique execution id -->
+                        <id>prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
                     <execution>
-                        <id>report</id> <!-- Unique execution id -->
+                        <id>report</id>
+                        <phase>prepare-package</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
-            <!-- Add other plugins as needed -->
+            <!-- Other plugins -->
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
+
 </project>
